@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad58d6bfc8f24edf802ca4ed0ea5696d" Name="Diagram1">
+        <EntityTypeShape EntityType="CrammingModel.AnswerLiked" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Answer" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Notificate" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Post" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Profile" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Question" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.QuestionLiked" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.QuestionTag" Width="1.5" PointX="7.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.Tag" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.User" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrammingModel.UserTag" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="CrammingModel.FK__AnswerLik__Answe__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__AnswerLik__UserI__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Answers__Questio__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Answers__UserID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Notificat__UserI__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Post__UserId__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Users__ProfileID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__Question__UserID__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__QuestionL__Quest__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__QuestionT__Quest__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__QuestionL__UserI__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__QuestionT__TagID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__UserTag__TagID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="CrammingModel.FK__UserTag__UserID__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

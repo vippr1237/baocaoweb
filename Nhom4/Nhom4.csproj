@@ -1,0 +1,583 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C7444B1-D0D0-47E4-9555-95002BD3D065}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nhom4</RootNamespace>
+    <AssemblyName>Nhom4</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44393</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Form\Dangbai.aspx" />
+    <Content Include="Form\Dangki.aspx" />
+    <Content Include="Form\Dangnhap.aspx" />
+    <Content Include="Form\Question.aspx" />
+    <Content Include="Form\QuestionDetail.aspx" />
+    <Content Include="Form\Template\css\qd.css" />
+    <Content Include="Form\Trang_ca_nhan.aspx" />
+    <Content Include="Form\Xephang.aspx" />
+    <Content Include="Form\Template\assets\css\theme-1.css" />
+    <Content Include="Form\Template\assets\css\theme-2.css" />
+    <Content Include="Form\Template\assets\css\theme-3.css" />
+    <Content Include="Form\Template\assets\css\theme-4.css" />
+    <Content Include="Form\Template\assets\css\theme-5.css" />
+    <Content Include="Form\Template\assets\css\theme-6.css" />
+    <Content Include="Form\Template\assets\css\theme-7.css" />
+    <Content Include="Form\Template\assets\css\theme-8.css" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-banner.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-1.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-10.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-11.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-12.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-2.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-3.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-4.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-5.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-6.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-7.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-8.jpg" />
+    <Content Include="Form\Template\assets\images\blog\blog-post-thumb-9.jpg" />
+    <Content Include="Form\Template\assets\images\tech.jpg" />
+    <Content Include="Form\Template\assets\js\blog.js" />
+    <Content Include="Form\Template\assets\js\demo\style-switcher.js" />
+    <Content Include="Form\Template\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Form\Template\assets\plugins\jquery-3.3.1.min.js" />
+    <Content Include="Form\Template\assets\plugins\popper.min.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\alert.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\button.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\carousel.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\collapse.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\dropdown.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\index.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\modal.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\popover.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\scrollspy.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\tab.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\toast.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\tooltip.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\util.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\alert.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\button.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\carousel.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\collapse.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\dropdown.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\index.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\modal.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\popover.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\scrollspy.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\tab.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\toast.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\tooltip.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\src\util.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\browsers.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\index.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\integration\bundle.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\integration\index.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\integration\rollup.bundle.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\karma.conf.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\alert.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\button.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\carousel.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\collapse.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\dropdown.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\modal.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\popover.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\scrollspy.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\tab.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\toast.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\tooltip.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\util.js" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\alert.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\button.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\carousel.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\collapse.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\dropdown.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\modal.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\popover.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\scrollspy.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\tab.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\toast.html" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\visual\tooltip.html" />
+    <Content Include="Form\Template\css\main.css" />
+    <Content Include="Form\Template\css\util.css" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Form\Template\fonts\JosefinSans\OFL.txt" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Form\Template\images\bg-01.jpg" />
+    <Content Include="Form\Template\images\icons\favicon.ico" />
+    <Content Include="Form\Template\images\icons\map-marker.png" />
+    <Content Include="Form\Template\images\img-01.png" />
+    <Content Include="Form\Template\js\main.js" />
+    <Content Include="Form\Template\js\map-custom.js" />
+    <Content Include="Form\Template\vendor\animate\animate.css" />
+    <Content Include="Form\Template\vendor\animsition\css\animsition.css" />
+    <Content Include="Form\Template\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Form\Template\vendor\animsition\js\animsition.js" />
+    <Content Include="Form\Template\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Form\Template\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Form\Template\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Form\Template\vendor\bootstrap\js\popper.js" />
+    <Content Include="Form\Template\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Form\Template\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Form\Template\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Form\Template\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Form\Template\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Form\Template\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Form\Template\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Form\Template\vendor\daterangepicker\moment.js" />
+    <Content Include="Form\Template\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Form\Template\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Form\Template\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Form\Template\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Form\Template\vendor\select2\select2.css" />
+    <Content Include="Form\Template\vendor\select2\select2.js" />
+    <Content Include="Form\Template\vendor\select2\select2.min.css" />
+    <Content Include="Form\Template\vendor\select2\select2.min.js" />
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form\Dangbai.aspx.cs">
+      <DependentUpon>Dangbai.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Dangbai.aspx.designer.cs">
+      <DependentUpon>Dangbai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dangki.aspx.cs">
+      <DependentUpon>Dangki.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Dangki.aspx.designer.cs">
+      <DependentUpon>Dangki.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Dangnhap.aspx.cs">
+      <DependentUpon>Dangnhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Dangnhap.aspx.designer.cs">
+      <DependentUpon>Dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\QuestionDetail.aspx.cs">
+      <DependentUpon>QuestionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\QuestionDetail.aspx.designer.cs">
+      <DependentUpon>QuestionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Trang_ca_nhan.aspx.cs">
+      <DependentUpon>Trang_ca_nhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Trang_ca_nhan.aspx.designer.cs">
+      <DependentUpon>Trang_ca_nhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Xephang.aspx.cs">
+      <DependentUpon>Xephang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Xephang.aspx.designer.cs">
+      <DependentUpon>Xephang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Answer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AnswerLiked.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Notificate.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Post.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Profile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Question.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuestionDetail.cs" />
+    <Compile Include="Model\QuestionForm1.cs" />
+    <Compile Include="Model\QuestionLiked.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuestionTag.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tag.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tagname.cs" />
+    <Compile Include="Model\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserTag.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Profile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Form\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Form\Template\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-Bold.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-BoldItalic.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-Italic.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-Light.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-LightItalic.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-Regular.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-SemiBold.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-SemiBoldItalic.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-Thin.ttf" />
+    <Content Include="Form\Template\fonts\JosefinSans\JosefinSans-ThinItalic.ttf" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Form\Template\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-BoldItalic.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-Italic.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-LightItalic.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-Regular.otf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="Form\Template\fonts\OpenSans\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-Bold.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-ExtraLight.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-Light.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-Medium.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-Regular.ttf" />
+    <Content Include="Form\Template\fonts\oswald\Oswald-SemiBold.ttf" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Form\Template\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Form\Site1.Master" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\alert.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\button.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\carousel.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\collapse.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\dropdown.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\index.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\modal.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\popover.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\scrollspy.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\tab.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\toast.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\tooltip.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\dist\util.js.map" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\README.md" />
+    <Content Include="Form\Template\assets\scss\bootstrap\js\tests\unit\.eslintrc.json" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_overflow.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_stretched-link.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_alert.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_badge.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_button-group.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_buttons.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_card.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_carousel.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_close.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_code.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_forms.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_functions.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_grid.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_images.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_input-group.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_list-group.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_media.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_mixins.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_modal.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_nav.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_navbar.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_pagination.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_popover.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_print.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_progress.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_reboot.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_root.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_spinners.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_tables.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_toasts.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_transitions.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_type.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_utilities.scss" />
+    <Content Include="Form\Template\assets\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="Form\Template\assets\scss\theme-1.scss" />
+    <Content Include="Form\Template\assets\scss\theme-2.scss" />
+    <Content Include="Form\Template\assets\scss\theme-3.scss" />
+    <Content Include="Form\Template\assets\scss\theme-4.scss" />
+    <Content Include="Form\Template\assets\scss\theme-5.scss" />
+    <Content Include="Form\Template\assets\scss\theme-6.scss" />
+    <Content Include="Form\Template\assets\scss\theme-7.scss" />
+    <Content Include="Form\Template\assets\scss\theme-8.scss" />
+    <Content Include="Form\Template\assets\scss\theme\styles.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_about.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_base.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_blog.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_demo.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_mixins.scss" />
+    <Content Include="Form\Template\assets\scss\theme\_responsive.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53456</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44393/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

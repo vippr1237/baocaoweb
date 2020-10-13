@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CrammingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnswerLiked">
+          <Key>
+            <PropertyRef Name="ALID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AnswerID" Type="int" Nullable="false" />
+          <Property Name="ALID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Body" Type="text" />
+          <Property Name="Likes" Type="int" />
+          <Property Name="Posttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Notificate">
+          <Key>
+            <PropertyRef Name="NotiID" />
+          </Key>
+          <Property Name="NotiID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="text" />
+          <Property Name="Likes" Type="int" />
+          <Property Name="Posttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="30" />
+          <Property Name="NgaySinh" Type="datetime" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="40" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="Reputation" Type="int" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Body" Type="text" />
+          <Property Name="viewcount" Type="int" />
+          <Property Name="Likes" Type="int" />
+          <Property Name="Posttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="QuestionLiked">
+          <Key>
+            <PropertyRef Name="QLID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QLID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionTag">
+          <Key>
+            <PropertyRef Name="QTID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="QTID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="15" />
+          <Property Name="ProfileID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserTag">
+          <Key>
+            <PropertyRef Name="UTID" />
+          </Key>
+          <Property Name="UTID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AnswerLik__Answe__239E4DCF">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+          <End Role="AnswerLiked" Type="Self.AnswerLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="AnswerLiked">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnswerLik__UserI__24927208">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AnswerLiked" Type="Self.AnswerLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AnswerLiked">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__Questio__25869641">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__UserID__267ABA7A">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__276EDEB3">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Notificate" Type="Self.Notificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notificate">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Post__UserId__286302EC">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__UserID__29572725">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionL__Quest__2A4B4B5E">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="QuestionLiked" Type="Self.QuestionLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="QuestionLiked">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionL__UserI__2B3F6F97">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="QuestionLiked" Type="Self.QuestionLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="QuestionLiked">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__2C3393D0">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="QuestionTag" Type="Self.QuestionTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="QuestionTag">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__TagID__2D27B809">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="QuestionTag" Type="Self.QuestionTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="QuestionTag">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__ProfileID__2E1BDC42">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTag__TagID__2F10007B">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="UserTag" Type="Self.UserTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="UserTag">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTag__UserID__300424B4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserTag" Type="Self.UserTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserTag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrammingModelStoreContainer">
+          <EntitySet Name="AnswerLiked" EntityType="Self.AnswerLiked" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notificate" EntityType="Self.Notificate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionLiked" EntityType="Self.QuestionLiked" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionTag" EntityType="Self.QuestionTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTag" EntityType="Self.UserTag" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AnswerLik__Answe__239E4DCF" Association="Self.FK__AnswerLik__Answe__239E4DCF">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="AnswerLiked" EntitySet="AnswerLiked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnswerLik__UserI__24927208" Association="Self.FK__AnswerLik__UserI__24927208">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AnswerLiked" EntitySet="AnswerLiked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__Questio__25869641" Association="Self.FK__Answers__Questio__25869641">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__UserID__267ABA7A" Association="Self.FK__Answers__UserID__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__276EDEB3" Association="Self.FK__Notificat__UserI__276EDEB3">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Notificate" EntitySet="Notificate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Post__UserId__286302EC" Association="Self.FK__Post__UserId__286302EC">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__UserID__29572725" Association="Self.FK__Question__UserID__29572725">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionL__Quest__2A4B4B5E" Association="Self.FK__QuestionL__Quest__2A4B4B5E">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="QuestionLiked" EntitySet="QuestionLiked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionL__UserI__2B3F6F97" Association="Self.FK__QuestionL__UserI__2B3F6F97">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="QuestionLiked" EntitySet="QuestionLiked" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__2C3393D0" Association="Self.FK__QuestionT__Quest__2C3393D0">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="QuestionTag" EntitySet="QuestionTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__TagID__2D27B809" Association="Self.FK__QuestionT__TagID__2D27B809">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="QuestionTag" EntitySet="QuestionTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__ProfileID__2E1BDC42" Association="Self.FK__Users__ProfileID__2E1BDC42">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTag__TagID__2F10007B" Association="Self.FK__UserTag__TagID__2F10007B">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="UserTag" EntitySet="UserTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTag__UserID__300424B4" Association="Self.FK__UserTag__UserID__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTag" EntitySet="UserTag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrammingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnswerLiked">
+          <Key>
+            <PropertyRef Name="ALID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AnswerID" Type="Int32" Nullable="false" />
+          <Property Name="ALID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Answer" Relationship="Self.FK__AnswerLik__Answe__239E4DCF" FromRole="AnswerLiked" ToRole="Answers" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AnswerLik__UserI__24927208" FromRole="AnswerLiked" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Likes" Type="Int32" />
+          <Property Name="Posttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AnswerLikeds" Relationship="Self.FK__AnswerLik__Answe__239E4DCF" FromRole="Answers" ToRole="AnswerLiked" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__Answers__Questio__25869641" FromRole="Answers" ToRole="Question" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Answers__UserID__267ABA7A" FromRole="Answers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Notificate">
+          <Key>
+            <PropertyRef Name="NotiID" />
+          </Key>
+          <Property Name="NotiID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserI__276EDEB3" FromRole="Notificate" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Likes" Type="Int32" />
+          <Property Name="Posttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Post__UserId__286302EC" FromRole="Post" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="ProfileID" />
+          </Key>
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="Hoten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+          <Property Name="DiaChi" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Reputation" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__ProfileID__2E1BDC42" FromRole="Profiles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="viewcount" Type="Int32" />
+          <Property Name="Likes" Type="Int32" />
+          <Property Name="Posttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__Questio__25869641" FromRole="Question" ToRole="Answers" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Question__UserID__29572725" FromRole="Question" ToRole="Users" />
+          <NavigationProperty Name="QuestionLikeds" Relationship="Self.FK__QuestionL__Quest__2A4B4B5E" FromRole="Question" ToRole="QuestionLiked" />
+          <NavigationProperty Name="QuestionTags" Relationship="Self.FK__QuestionT__Quest__2C3393D0" FromRole="Question" ToRole="QuestionTag" />
+        </EntityType>
+        <EntityType Name="QuestionLiked">
+          <Key>
+            <PropertyRef Name="QLID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QLID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__QuestionL__Quest__2A4B4B5E" FromRole="QuestionLiked" ToRole="Question" />
+          <NavigationProperty Name="User" Relationship="Self.FK__QuestionL__UserI__2B3F6F97" FromRole="QuestionLiked" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="QuestionTag">
+          <Key>
+            <PropertyRef Name="QTID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="QTID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__QuestionT__Quest__2C3393D0" FromRole="QuestionTag" ToRole="Question" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK__QuestionT__TagID__2D27B809" FromRole="QuestionTag" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="TagName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QuestionTags" Relationship="Self.FK__QuestionT__TagID__2D27B809" FromRole="Tags" ToRole="QuestionTag" />
+          <NavigationProperty Name="UserTags" Relationship="Self.FK__UserTag__TagID__2F10007B" FromRole="Tags" ToRole="UserTag" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileID" Type="Int32" />
+          <NavigationProperty Name="AnswerLikeds" Relationship="Self.FK__AnswerLik__UserI__24927208" FromRole="Users" ToRole="AnswerLiked" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__UserID__267ABA7A" FromRole="Users" ToRole="Answers" />
+          <NavigationProperty Name="Notificates" Relationship="Self.FK__Notificat__UserI__276EDEB3" FromRole="Users" ToRole="Notificate" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK__Post__UserId__286302EC" FromRole="Users" ToRole="Post" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Users__ProfileID__2E1BDC42" FromRole="Users" ToRole="Profiles" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Question__UserID__29572725" FromRole="Users" ToRole="Question" />
+          <NavigationProperty Name="QuestionLikeds" Relationship="Self.FK__QuestionL__UserI__2B3F6F97" FromRole="Users" ToRole="QuestionLiked" />
+          <NavigationProperty Name="UserTags" Relationship="Self.FK__UserTag__UserID__300424B4" FromRole="Users" ToRole="UserTag" />
+        </EntityType>
+        <EntityType Name="UserTag">
+          <Key>
+            <PropertyRef Name="UTID" />
+          </Key>
+          <Property Name="UTID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK__UserTag__TagID__2F10007B" FromRole="UserTag" ToRole="Tags" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserTag__UserID__300424B4" FromRole="UserTag" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__AnswerLik__Answe__239E4DCF">
+          <End Role="Answers" Type="Self.Answer" Multiplicity="1" />
+          <End Role="AnswerLiked" Type="Self.AnswerLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="AnswerLiked">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AnswerLik__UserI__24927208">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="AnswerLiked" Type="Self.AnswerLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AnswerLiked">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__Questio__25869641">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__UserID__267ABA7A">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__276EDEB3">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Notificate" Type="Self.Notificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notificate">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Post__UserId__286302EC">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__ProfileID__2E1BDC42">
+          <End Role="Profiles" Type="Self.Profile" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="ProfileID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__UserID__29572725">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionL__Quest__2A4B4B5E">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="QuestionLiked" Type="Self.QuestionLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="QuestionLiked">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__2C3393D0">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="QuestionTag" Type="Self.QuestionTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="QuestionTag">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionL__UserI__2B3F6F97">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="QuestionLiked" Type="Self.QuestionLiked" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="QuestionLiked">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__TagID__2D27B809">
+          <End Role="Tags" Type="Self.Tag" Multiplicity="1" />
+          <End Role="QuestionTag" Type="Self.QuestionTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="QuestionTag">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTag__TagID__2F10007B">
+          <End Role="Tags" Type="Self.Tag" Multiplicity="1" />
+          <End Role="UserTag" Type="Self.UserTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="UserTag">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTag__UserID__300424B4">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserTag" Type="Self.UserTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserTag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBCramming" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnswerLikeds" EntityType="Self.AnswerLiked" />
+          <EntitySet Name="Answers" EntityType="Self.Answer" />
+          <EntitySet Name="Notificates" EntityType="Self.Notificate" />
+          <EntitySet Name="Posts" EntityType="Self.Post" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="QuestionLikeds" EntityType="Self.QuestionLiked" />
+          <EntitySet Name="QuestionTags" EntityType="Self.QuestionTag" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTags" EntityType="Self.UserTag" />
+          <AssociationSet Name="FK__AnswerLik__Answe__239E4DCF" Association="Self.FK__AnswerLik__Answe__239E4DCF">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="AnswerLiked" EntitySet="AnswerLikeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AnswerLik__UserI__24927208" Association="Self.FK__AnswerLik__UserI__24927208">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AnswerLiked" EntitySet="AnswerLikeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__Questio__25869641" Association="Self.FK__Answers__Questio__25869641">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__UserID__267ABA7A" Association="Self.FK__Answers__UserID__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__276EDEB3" Association="Self.FK__Notificat__UserI__276EDEB3">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Notificate" EntitySet="Notificates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Post__UserId__286302EC" Association="Self.FK__Post__UserId__286302EC">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__ProfileID__2E1BDC42" Association="Self.FK__Users__ProfileID__2E1BDC42">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__UserID__29572725" Association="Self.FK__Question__UserID__29572725">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionL__Quest__2A4B4B5E" Association="Self.FK__QuestionL__Quest__2A4B4B5E">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="QuestionLiked" EntitySet="QuestionLikeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__2C3393D0" Association="Self.FK__QuestionT__Quest__2C3393D0">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="QuestionTag" EntitySet="QuestionTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionL__UserI__2B3F6F97" Association="Self.FK__QuestionL__UserI__2B3F6F97">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="QuestionLiked" EntitySet="QuestionLikeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__TagID__2D27B809" Association="Self.FK__QuestionT__TagID__2D27B809">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="QuestionTag" EntitySet="QuestionTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTag__TagID__2F10007B" Association="Self.FK__UserTag__TagID__2F10007B">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="UserTag" EntitySet="UserTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTag__UserID__300424B4" Association="Self.FK__UserTag__UserID__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTag" EntitySet="UserTags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CrammingModelStoreContainer" CdmEntityContainer="DBCramming">
+          <EntitySetMapping Name="AnswerLikeds">
+            <EntityTypeMapping TypeName="CrammingModel.AnswerLiked">
+              <MappingFragment StoreEntitySet="AnswerLiked">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="ALID" ColumnName="ALID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="CrammingModel.Answer">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Posttime" ColumnName="Posttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notificates">
+            <EntityTypeMapping TypeName="CrammingModel.Notificate">
+              <MappingFragment StoreEntitySet="Notificate">
+                <ScalarProperty Name="NotiID" ColumnName="NotiID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="content" ColumnName="content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CrammingModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Posttime" ColumnName="Posttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="CrammingModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="CrammingModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="viewcount" ColumnName="viewcount" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Posttime" ColumnName="Posttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionLikeds">
+            <EntityTypeMapping TypeName="CrammingModel.QuestionLiked">
+              <MappingFragment StoreEntitySet="QuestionLiked">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QLID" ColumnName="QLID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTags">
+            <EntityTypeMapping TypeName="CrammingModel.QuestionTag">
+              <MappingFragment StoreEntitySet="QuestionTag">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="QTID" ColumnName="QTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="CrammingModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CrammingModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTags">
+            <EntityTypeMapping TypeName="CrammingModel.UserTag">
+              <MappingFragment StoreEntitySet="UserTag">
+                <ScalarProperty Name="UTID" ColumnName="UTID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
