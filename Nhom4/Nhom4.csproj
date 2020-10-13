@@ -78,6 +78,7 @@
     <Content Include="Form\Dangbai.aspx" />
     <Content Include="Form\Dangki.aspx" />
     <Content Include="Form\Dangnhap.aspx" />
+    <Content Include="Form\Delete.aspx" />
     <Content Include="Form\Question.aspx" />
     <Content Include="Form\QuestionDetail.aspx" />
     <Content Include="Form\Template\css\qd.css" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Form\Dangnhap.aspx.designer.cs">
       <DependentUpon>Dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>

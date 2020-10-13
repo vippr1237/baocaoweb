@@ -5,7 +5,12 @@
 		table, th, td{
     border:0;
     border-bottom: 1px solid #e6e6e6
+    
 }
+        .red{
+            color:red;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -44,8 +49,9 @@
                         <div >
                             <div style="padding:5px"><%# Eval("body")%> </div>
                             <div style="text-align:right"><i class="far fa-heart"><%# Eval("like") %></i></div>
+                            <button><a href="Delete.aspx?id=<%# Eval("userid") %>&ans=<%# Eval("ansid") %>">Xóa</a></button>
                         </div>
-
+                        
                     </ItemTemplate>
 
                 </asp:TemplateField>
@@ -54,9 +60,14 @@
         </div>
         <div>
         <h4>Đăng câu trả lời</h4>
-        <asp:TextBox id="TextArea1" TextMode="multiline" Columns="75" Rows="10" runat="server" />
-        <asp:Button runat="server" ID="post_Btn" Text="Đăng Câu Hỏi"/>
+        <div>
+        <asp:Label ID="valid_lb" runat="server" CssClass="red"></asp:Label>
+        </div>
+        <asp:TextBox id="ansbody" TextMode="multiline" Columns="75" Rows="10" runat="server"  />
+        <asp:Button runat="server" ID="post_Btn" Text="Đăng Câu Trả Lời" OnClick="Post_Answer"/>
+        
         </div>
     </div>
+    
     
 </asp:Content>

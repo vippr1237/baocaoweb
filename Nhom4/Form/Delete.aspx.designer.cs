@@ -11,43 +11,34 @@ namespace Nhom4.Form
 {
 
 
-    public partial class QuestionDetail
+    public partial class Delete
     {
 
         /// <summary>
-        /// gvanswer control.
+        /// lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvanswer;
+        protected global::System.Web.UI.WebControls.Label lb;
 
         /// <summary>
-        /// valid_lb control.
+        /// btn_del control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valid_lb;
+        protected global::System.Web.UI.WebControls.Button btn_del;
 
         /// <summary>
-        /// ansbody control.
+        /// btn_huy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ansbody;
-
-        /// <summary>
-        /// post_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button post_Btn;
+        protected global::System.Web.UI.WebControls.Button btn_huy;
     }
 }

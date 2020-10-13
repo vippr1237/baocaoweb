@@ -7,18 +7,24 @@
 							<h1>Vui lòng nhập thông tin câu hỏi của bạn</h1>
 							<div class="form-group">
 							  <label for="tiltle">Tiêu đề:</label>
-							  <input type="text" class="form-control" id="tiltle">
+							
+							  <asp:TextBox runat="server" class="form-control" ID="title"></asp:TextBox>
 							</div>
 							<div class="form-group">
 							  <label for="content">Nội dung:</label>
-							  <textarea class="form-control" rows="5" id="content"></textarea>
+							  <asp:TextBox ID="body" TextMode="multiline" Columns="100" Rows="10" runat="server"  />
 							</div>
 							<div class="form-group">
 							  <label for="Tag">Tag:</label>
-							  <input type="text" class="form-control" id="Tag">
+							  <asp:TextBox runat="server" class="form-control" ID="tag"></asp:TextBox>
 							</div>
-						<button type="submit" class="btn btn-primary">Đăng bài</button>
-						<button type="submit" class="btn btn-outline-secondary">Hủy</button>
+							<div> <asp:Label ID="valid" CssClass="red"  runat="server" />
+
+							</div>
+
+							<asp:Button runat="server" Text="Đăng bài" ID="post_Btn"  class="btn btn-primary" OnClick="post_Btn_Click"/>
+							<asp:Button runat="server" Text="Hủy" ID="cancel"  class="btn btn-outline-secondary"/>
+                           
 					</div>
 					</div>
 </asp:Content>

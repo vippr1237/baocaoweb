@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nhom4.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,11 +20,62 @@ namespace Nhom4.Form
         public string Tag;
         public string Tag1;
         public string Tag2;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-           // Nullable<int> qid =Int32.Parse(Request.QueryString["qid"]);
+
+            loadData();
            
+        }
+        protected void Post_Answer(object sender, EventArgs e)
+        {
+            if (Session["id"] == null)
+            {
+                Response.Redirect("Dangnhap.aspx");
+            }
+            else
+            {
+                int qid = Int32.Parse(Request.QueryString["qid"]);
+                DBCramming db = new DBCramming();
+                Answer new_ans = new Answer();
+                var new_id = from a in db.Answers
+                             select a.AnswerID;
+                
+                if (ansbody.Text == "")
+                {
+                    valid_lb.Text = "Nội dung không được để trống";
+                }
+                else
+                {
+                    new_ans.AnswerID = new_id.Max() + 1;
+                    new_ans.Body = ansbody.Text;
+                    new_ans.Likes = 0;
+                    new_ans.Posttime = DateTime.Now;
+                    new_ans.QuestionID = qid;
+                    new_ans.UserID = Session["id"].ToString();
+                
+                   
+                
+
+                    db.Answers.Add(new_ans);
+                    int res = db.SaveChanges();
+                    if (res == 0)
+                    {
+                        valid_lb.Text = "Đã có lỗi vui long thử lại";
+                    }
+                    else
+                    {
+                        ansbody.Text= string.Empty;
+                        loadData();
+                    }
+                }
+            }
+        }
+
+        private void loadData()
+        {
+            int qid = Int32.Parse(Request.QueryString["qid"]);
+
             var tag = from q in db.Questions
                       join qt in db.QuestionTags on q.QuestionID equals qt.QuestionID
                       join t in db.Tags on qt.TagID equals t.TagID
@@ -36,7 +88,7 @@ namespace Nhom4.Form
                      join u in db.Users on q.UserID equals u.UserID
                      join p in db.Profiles on u.ProfileID equals p.ProfileID
                      join a in db.Answers on q.QuestionID equals a.QuestionID into repliescount
-                     where q.QuestionID == 1
+                     where q.QuestionID == qid
                      select new Model.QuestionDetail
                      {
                          Title = q.Title,
@@ -62,9 +114,11 @@ namespace Nhom4.Form
             var ans = from a in db.Answers
                       join u in db.Users on a.UserID equals u.UserID
                       join p in db.Profiles on u.ProfileID equals p.ProfileID
-                      where a.QuestionID == 1
+                      where a.QuestionID == qid
                       select new
                       {
+                          ansid= a.AnswerID,
+                          userid = u.UserID,
                           name = p.Hoten,
                           body = a.Body,
                           time = a.Posttime,
@@ -72,7 +126,9 @@ namespace Nhom4.Form
                       };
             gvanswer.DataSource = ans.ToList();
             gvanswer.DataBind();
-
+            
         }
+
+     
     }
 }
